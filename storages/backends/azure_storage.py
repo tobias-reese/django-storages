@@ -140,7 +140,7 @@ class AzureStorage(Storage):
         return AzureStorageFile(name, mode, self)
 
     def exists(self, name):
-        return self.connection.exists(name)
+        return self.connection.exists(self.azure_container, name)
 
     def delete(self, name):
         try:
