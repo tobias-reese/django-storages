@@ -159,8 +159,8 @@ class AzureStorage(Storage):
         else:
             content_type = mimetypes.guess_type(name)[0]
 
-        # if hasattr(content, 'chunks'):
-            # content = BytesIO(b''.join(chunk for chunk in content.chunks()))
+        if hasattr(content, 'chunks'):
+            content = BytesIO(b''.join(chunk for chunk in content.chunks()))
         content_settings = ContentSettings(content_type=content_type)
         self.connection.create_blob_from_stream(container_name=self.azure_container,
                                                 blob_name=name,
