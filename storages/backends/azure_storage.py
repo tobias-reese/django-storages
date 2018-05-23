@@ -1,4 +1,6 @@
 from datetime import datetime, timedelta
+from io import BytesIO
+
 from azure.storage.blob import BlobBlock
 import os.path
 import mimetypes
